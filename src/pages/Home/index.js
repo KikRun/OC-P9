@@ -13,11 +13,7 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const { data, error, last } = useData();
-
-  console.log("Données reçues:", data);
-  console.log("Erreur:", error);
-  console.log("Dernier événement:", last);
+  const { last } = useData();
 
   return (
     <>
@@ -78,10 +74,9 @@ const Page = () => {
             {({ setIsOpened }) => (
               <Form
                 onSuccess={() => {
-                  setIsOpened(true); // Ouvre la modal
-                  console.log("Succès");
+                  setIsOpened(true);
                 }}
-                onError={() => console.log("error")}
+                onError={() => null}
               />
             )}
           </Modal>
