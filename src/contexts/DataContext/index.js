@@ -27,7 +27,7 @@ export const DataProvider = ({ children }) => {
   });
 
   const dataLength = data?.events?.length || 0;
-  const last = dataLength > 0 ? data.events[dataLength - 1] : null;
+  const last = dataLength > 0 ? [...data.events].sort((a, b) => new Date(b.date) - new Date(a.date))[0] : null;
 
   return (
     <DataContext.Provider
